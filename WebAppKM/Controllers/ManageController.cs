@@ -10,7 +10,7 @@ using WebAppKM.Models;
 
 namespace WebAppKM.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

@@ -189,29 +189,89 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OcsbDocsController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="CustomAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706090851435_addfullname.cs" />
+    <Compile Include="Migrations\201706090851435_addfullname.Designer.cs">
+      <DependentUpon>201706090851435_addfullname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706090902227_addgerder.cs" />
+    <Compile Include="Migrations\201706090902227_addgerder.Designer.cs">
+      <DependentUpon>201706090902227_addgerder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706190404488_role.cs" />
+    <Compile Include="Migrations\201706190404488_role.Designer.cs">
+      <DependentUpon>201706190404488_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706190723238_role2.cs" />
+    <Compile Include="Migrations\201706190723238_role2.Designer.cs">
+      <DependentUpon>201706190723238_role2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706190739150_role21.cs" />
+    <Compile Include="Migrations\201706190739150_role21.Designer.cs">
+      <DependentUpon>201706190739150_role21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706200739597_ocsbdoc.cs" />
+    <Compile Include="Migrations\201706200739597_ocsbdoc.Designer.cs">
+      <DependentUpon>201706200739597_ocsbdoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706200748004_ocsbdoc1.cs" />
+    <Compile Include="Migrations\201706200748004_ocsbdoc1.Designer.cs">
+      <DependentUpon>201706200748004_ocsbdoc1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706200758529_ocsbdoc2.cs" />
+    <Compile Include="Migrations\201706200758529_ocsbdoc2.Designer.cs">
+      <DependentUpon>201706200758529_ocsbdoc2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706200808521_ocsbdoc3.cs" />
+    <Compile Include="Migrations\201706200808521_ocsbdoc3.Designer.cs">
+      <DependentUpon>201706200808521_ocsbdoc3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OcsbDoc.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\km.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\header.png" />
+    <Content Include="Images\header1.png" />
+    <Content Include="Images\header1x.png" />
+    <Content Include="Images\header2.png" />
+    <Content Include="Images\header3.png" />
+    <Content Include="Images\header4.png" />
+    <Content Include="Images\header4_fv8.swf" />
+    <Content Include="Images\header_v8.swf" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo1.png" />
+    <Content Include="Images\logo4.jpg" />
+    <Content Include="Images\news_14.jpg" />
+    <Content Include="Images\news_15.jpg" />
+    <Content Include="Images\pic-OCSB.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -223,7 +283,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -257,9 +319,36 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Role\DeleteConfirm.cshtml" />
+    <Content Include="Views\Shared\AuthorizeFailed.cshtml" />
+    <Content Include="Views\OcsbDocs\Create.cshtml" />
+    <Content Include="Views\OcsbDocs\Delete.cshtml" />
+    <Content Include="Views\OcsbDocs\Details.cshtml" />
+    <Content Include="Views\OcsbDocs\Edit.cshtml" />
+    <Content Include="Views\OcsbDocs\Index.cshtml" />
+    <Content Include="Views\Home\km_02.cshtml" />
+    <Content Include="Views\Home\km_03.cshtml" />
+    <Content Include="Views\Home\km_04.cshtml" />
+    <Content Include="Views\Home\km_05.cshtml" />
+    <Content Include="Views\Home\km_06.cshtml" />
+    <Content Include="Views\Home\km_07.cshtml" />
+    <Content Include="Views\Home\Km_doc.cshtml" />
+    <Content Include="Views\Home\Km_raws.cshtml" />
+    <Content Include="Views\Home\km_01.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -275,6 +364,35 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706090851435_addfullname.resx">
+      <DependentUpon>201706090851435_addfullname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706090902227_addgerder.resx">
+      <DependentUpon>201706090902227_addgerder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706190404488_role.resx">
+      <DependentUpon>201706190404488_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706190723238_role2.resx">
+      <DependentUpon>201706190723238_role2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706190739150_role21.resx">
+      <DependentUpon>201706190739150_role21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706200739597_ocsbdoc.resx">
+      <DependentUpon>201706200739597_ocsbdoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706200748004_ocsbdoc1.resx">
+      <DependentUpon>201706200748004_ocsbdoc1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706200758529_ocsbdoc2.resx">
+      <DependentUpon>201706200758529_ocsbdoc2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706200808521_ocsbdoc3.resx">
+      <DependentUpon>201706200808521_ocsbdoc3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebAppKM.Models.OcsbDoc>
+
+@*@{
+        ViewBag.Title = "ข้อมูล";
+    }*@
+
+<h2>@ViewBag.pname</h2>
+@*<form asp-controller="Ocsbdocs" asp-action="SearchOcsbDoc" method="get">
+
+    </form>*@
+<p>
+    @using (Html.BeginForm("SearchOcsbDoc", "OcsbDocs", FormMethod.Get))
+    {
+        <div>
+            <input type="hidden" name="DocType" value="@ViewBag.doctype" />
+            <input type="hidden" name="DocGroup" value="@ViewBag.docgroup" />
+            <input type="hidden" name="Pname" value="@ViewBag.pname" />
+            @Html.TextBox("txtFilter") <input type="submit" value="ค้นหา" />
+        </div>
+    }
+</p>
+
+<p>
+    @if (User.IsInRole("Administrator") || User.IsInRole("User"))
+    {
+        @Html.ActionLink("Create New", "Create", new { DocType = @ViewBag.doctype, DocGroup = @ViewBag.docgroup})
+    }
+</p>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td width=90%>
+                <a href="@item.Links" target="_blank">@item.DocName</a>
+            </td>
+            <td>
+                @if (User.IsInRole("Administrator") || User.IsInRole("User"))
+                {
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DocID })
+                        @Html.ActionLink("Details", "Details", new { id = item.DocID })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DocID })
+                    </p>
+                }
+            </td>
+        </tr>
+    }
+
+</table>

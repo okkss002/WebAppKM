@@ -1,31 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "หน้าแรก";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h2>ความเป็นมา</h2>
+    <p class="lead">
+        สืบเนื่องจาก มาตรา ๑๑ ของพระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี พ.ศ. ๒๕๔๖
+        เพื่อให้มีลักษณะเป็นองค์กรแห่งการเรียนรู้อย่างสม่ำเสมอ
+        โดยต้องรับรู้ข้อมูลข่าวสารและสามารถประมวลผลความรู้ในด้านต่างๆ เพื่อนำมาประยุกต์ใช้ในการปฏิบัติราชการได้อย่างถูกต้อง รวดเร็ว...
+    </p>
+    <a class="btn btn-default" @Html.ActionLink("ความเป็นมา", "km_01", "Home")</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>กระบวนการจัดการความรู้ </h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            เป็นกระบวนการแบบหนึ่งที่จะช่วยให้องค์กรเข้าใจถึงขั้นตอนที่ทำให้เกิดกระบวนการจัดการความรู้
+            หรือพัฒนาการของความรู้ที่จะเกิดขึ้นภายในองค์กร ประกอบด้วย 7 ขั้นตอน..
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" @Html.ActionLink("กระบวนการจัดการความรู้", "km_02", "Home")</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>องค์ประกอบสำคัญของการจัดการความรู้ </h2>
+        <p>1. “คน” ถือว่าเป็นองค์ประกอบที่สำคัญที่สุดเพราะเป็นแหล่งความรู้ และเป็นผู้นำความรู้ไปใช้ให้เกิดประโยชน์..</p>
+        <p><a class="btn btn-default" @Html.ActionLink("องค์ประกอบสำคัญของการจัดการความรู้", "km_03", "Home")</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>ขั้นตอนการจัดการความรู้</h2>
+        <p>
+            ความรู้จำแนกเป็น 2 ประเภทใหญ่ๆ คือ ความรู้ที่ฝังอยู่ในคน (Tacit Knowledge) และความรู้ที่ชัดแจ้ง (Explicit Knowledge)
+            ความรู้ที่ฝังอยู่ในคนคือ ประสบการณ์ ทักษะ พรสวรรค์ เทคนิค การทำงานที่สั่งสมมาจนชำนาญไม่มีในตำรา ส่วนความรู้ที่ชัดแจ้งคือ ความรู้ที่สามารถจับต้องได้..
+        </p>
+        <p><a class="btn btn-default" @Html.ActionLink("ขั้นตอนการจัดการความรู้", "km_04", "Home")</a></p>
     </div>
 </div>

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebAppKM.Models.OcsbDoc>
+
+@*@{
+        ViewBag.Title = "ข้อมูล";
+    }*@
+
+<h2>@ViewBag.pname</h2>
+@*<form asp-controller="Ocsbdocs" asp-action="SearchOcsbDoc" method="get">
+
+    </form>*@
+<p>
+    @using (Html.BeginForm("SearchOcsbDoc", "Admin", FormMethod.Get))
+    {
+        <div>
+            <input type="hidden" name="DocType" value="@ViewBag.doctype" />
+            <input type="hidden" name="DocGroup" value="@ViewBag.docgroup" />
+            <input type="hidden" name="Pname" value="@ViewBag.pname" />
+            @Html.TextBox("txtFilter") <input type="submit" value="ค้นหา" />
+        </div>
+    }
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keyword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Links)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>*@
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.DocType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keyword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Links)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>*@
+            <td width=90%>
+                @*<a href="@Html.DisplayFor(modelItem => item.Links)" target="_blank">@Html.DisplayFor(modelItem => item.DocName)</a>*@
+                <a href="@item.Links" target="_blank">@item.DocName</a>
+            </td>
+            <td>
+                @*@if (User.IsInRole("admins"))
+                    {
+
+                    }*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.DocID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DocID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DocID })
+            </td>
+        </tr>
+    }
+
+</table>

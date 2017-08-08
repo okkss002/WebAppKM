@@ -7,9 +7,38 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var hi = $(window).height();
+            var wi = $(window).width();
+            //wi = wi - 40;
+            document.getElementById('img_canvas').style.width = wi + 'px';
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(window).resize(function () {
+                var hi = $(window).height();
+                var wi = $(window).width();
+                //wi = wi - 40;
+                document.getElementById('img_canvas').style.width = wi + 'px';
+            });
+        });
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <img src="~/Images/logo4.jpg" id="img_canvas" />
+            </a>
+            @*<img src="//placehold.it/300x200" class="img-responsive">*@
+        </div>
+    </div>
+
+    <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
+        <!-- @*<div class="navbar navbar-inverse navbar-fixed-top">*@ -->
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,18 +46,86 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("หน้าแรก KM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            สาระน่ารู้ km
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("ความเป็นมา", "Km_01", "Home")</li>
+                            <li>@Html.ActionLink("กระบวนการจัดการความรู้", "Km_02", "Home")</li>
+                            <li>@Html.ActionLink("องค์ประกอบ", "Km_03", "Home")</li>
+                            <li>@Html.ActionLink("ขันตอนการจัดการ", "Km_04", "Home")</li>
+                            <li>@Html.ActionLink("CoP (Community of Practice)", "Km_05", "Home")</li>
+                            <li>@Html.ActionLink("AAR (Afer Action Review)", "Km_06", "Home")</li>
+                            <li>@Html.ActionLink("กระบวนการบริหารจัดการการเปลี่ยนแปลง", "Km_07", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            ข้อมูลสาระต่างๆ
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("รวมประกาศและระเบียบออกตามความใน พ.ร.บ.อ้อยและน้ำตาลทราย", "index", "OcsbDocs", new { Doctype = "001", DocGroup = "000", Pname = "รวมประกาศและระเบียบออกตามความใน พ.ร.บ.อ้อยและน้ำตาลทราย" }, "")</li>
+                            <li>@Html.ActionLink("โครงการว่าจ้างที่ปรึกษา", "index", "OcsbDocs", new { Doctype = "002", DocGroup = "000", Pname = "โครงการว่าจ้างที่ปรึกษา" }, "")</li>
+                            <li>@Html.ActionLink("สาระน่ารู้ของ สอน.", "index", "OcsbDocs", new { Doctype = "006", DocGroup = "000", Pname = "สาระน่ารู้ของ สอน." }, "")</li>
+                            <li>@Html.ActionLink("เอกสารเผยแพร่", "index", "OcsbDocs", new { Doctype = "004", DocGroup = "000", Pname = "เอกสารเผยแพร่" }, "")</li>
+                            <li>@Html.ActionLink("องค์ความรู้", "index", "OcsbDocs", new { Doctype = "005", Pname = "องค์ความรู้" }, "")</li>
+                            <li><a href="http://www.ocsb.go.th/th/cms/detail.php?ID=533&SystemModuleKey=law" target="_blank">มติคณะกรรมการ ตามพ.ร.บ.อ้อยและน้ำตาลทราย</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            กิจกรรมและการดำเนินการ
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="http://web.ocsb.go.th/KM/index.php/km-project/area1" target="_blank"> ศอภ.1 </a></li> -->
+                            <li>@Html.ActionLink(" ศอภ.1 ", "index", "OcsbDocs", new { Doctype = "006", DocGroup = "000", Pname = " ศอภ.1 " }, "")</li>
+                            <li><a href="http://web.ocsb.go.th/KM/index.php/km-project/area2" target="_blank"> ศอภ.2 </a></li>
+                            <!-- <li><a href="http://web.ocsb.go.th/KM/index.php/km-project/area3" target="_blank"> ศอภ.3 </a></li> -->
+                            <li>@Html.ActionLink(" ศอภ.3 ", "index", "OcsbDocs", new { Doctype = "007", DocGroup = "000", Pname = " ศอภ.3 " }, "")</li>
+                            <li><a href="http://web.ocsb.go.th/KM/index.php/km-project/area4" target="_blank"> ศอภ.4 </a></li>
+                            <li><a href="http://web.ocsb.go.th/KM/index.php/km-project/ocsb" target="_blank"> สอน. </a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("กฎหมาย", "KM_raws", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            KM TEAM
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("ความเป็นมา", "Km_01", "Home")</li>
+                            <li><a href="http://km.ocsb.go.th/uploads/คำสั่งkm.pdf" target="_blank">คณะทำงาน</a></li>
+                            <li><a href="http://km.ocsb.go.th/uploads/แผนkm.pdf" target="_blank">แผนการจัดการความรู้</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("ค้นหา", "index", "OcsbDocs", new { Pname = "ทั้งหมด" }, "")</li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Admin
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("ลงทะเบียนผู้ใช้งาน", "Register", "Account")</li>
+                                <li>@Html.ActionLink("กําหนดสิทธิ์", "index", "Role")</li>
+                                <li>@Html.ActionLink("ข้อมูล", "index", "Admin")</li>
+                            </ul>
+                        </li>
+                    }
+                </ul>@Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
